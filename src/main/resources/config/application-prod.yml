@@ -1,0 +1,27 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        dialect: "org.hibernate.dialect.MySQL8Dialect"
+        jdbc:
+          lob:
+            non_contextual_creation: "true"
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://192.168.0.78:3306/woojang_auth?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+    username: sistechauth
+    password: sistech!234
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 1
+    locations: classpath:db/migration,classpath:db/callback
+jwt:
+  key:
+    private-key: security/private_key.pem
+    public-key: security/public_key.pem
+    algorithm: RSA
+server:
+  port: 8080

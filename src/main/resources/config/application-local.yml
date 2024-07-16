@@ -1,0 +1,31 @@
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        show_sql: "true"
+        format_sql: "true"
+        hbm2ddl:
+          auto: update
+        dialect: "org.hibernate.dialect.H2Dialect"
+        jdbc:
+          lob:
+            non_contextual_creation: "true"
+#    generate-ddl: true
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:woojang_auth
+    username: sa
+    password: password
+  flyway:
+    enabled: false
+#    baseline-on-migrate: true
+#    baseline-version: 1
+#    locations: classpath:db/migration,classpath:db/callback
+jwt:
+  key:
+    private-key: D:/workspace-intellij/woojang1230/authorization-server/authorization-server/output/private_key.pem
+    public-key: D:/workspace-intellij/woojang1230/authorization-server/authorization-server/output/public_key.pem
+    algorithm: RSA
+server:
+  port: 8089
